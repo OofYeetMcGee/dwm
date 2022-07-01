@@ -121,7 +121,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY						XK_n,	   togglealttag,   {0} },
+	{ MODKEY,						XK_n,	   togglealttag,   {0} },
 	{ MODKEY,						XK_a,	   shiftview,	   {.i = -1} },
 	{ MODKEY,						XK_s,	   shiftview,	   {.i = +1} },
 	TAGKEYS(                        XK_1,                      0)
