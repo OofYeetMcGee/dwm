@@ -5,7 +5,9 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 20;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar				= 1;        /* 0 means bottom bar */
+static const int vertpad			= 10;
+static const int sidepad			= 10;
 static const char *fonts[]          = { "Terminus:size=20", "Font Awesome:size:20" };
 static const char dmenufont[]       = "Terminus:size=20";
 static const char col_gray1[]       = "#222222";
@@ -67,6 +69,7 @@ static const char *brave[] = {"brave", NULL};
 static const char *up_bright[] = {"light", "-A", "5", NULL};
 static const char *down_bright[] = {"light", "-U", "5", NULL};
 
+#include "shift-tools.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -95,6 +98,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,						XK_a,	   shiftview,	   {.i = -1} },
+	{ MODKEY,						XK_s,	   shiftview,	   {.i = +1} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
