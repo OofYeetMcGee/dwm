@@ -24,6 +24,11 @@ static const char *colors[][3]      = {
 //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeNorm] = { col_cyan, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 static const unsigned int alphas[][3]	= {
@@ -80,11 +85,15 @@ static const char *brave[] = {"brave", NULL};
 static const char *up_bright[] = {"light", "-A", "5", NULL};
 static const char *down_bright[] = {"light", "-U", "5", NULL};
 
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = {"alacrtitty", "-t", "Scratch", "-o", "window.dimensions.columns=68", "window.dimensions.lines=22", NULL};
+
 #include "shift-tools.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,						XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,		XK_b,	   spawn,	   {.v = brave} },
 	{ MODKEY,			XK_q,      spawn,	   { .v = up_bright} },
 	{ MODKEY,			XK_w,      spawn,	   { .v = down_bright} },
