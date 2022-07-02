@@ -86,8 +86,11 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+
+static const char dmenu_hp_list[] = "steam,discord,xgalaga++";
+
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f4dd00", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
 //static const char *termcmd[]  = { "urxvt", "+sb", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[] = {"brave", NULL};
@@ -95,7 +98,7 @@ static const char *up_bright[] = {"light", "-A", "5", NULL};
 static const char *down_bright[] = {"light", "-U", "5", NULL};
 
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = {"alacrtitty", "-t", "Scratch", "-o", "window.dimensions.columns=68", "window.dimensions.lines=22", NULL};
+static const char *scratchpadcmd[] = {"alacritty", "-t", "Scratch", "-o", "window.dimensions.columns=68", "window.dimensions.lines=22", NULL};
 
 #include "shift-tools.c"
 static Key keys[] = {
