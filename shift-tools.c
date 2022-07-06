@@ -1,5 +1,5 @@
 /* Sends a window to the next/prev tag */
-/*void
+void
 shifttag(const Arg *arg)
 {
 	Arg shifted;
@@ -12,7 +12,6 @@ shifttag(const Arg *arg)
 		shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i));
 	tag(&shifted);
 }
-*/
 /* Sends a window to the next/prev tag that has a client, else it moves it to the next/prev one. */
 /*void
 shifttagclients(const Arg *arg)

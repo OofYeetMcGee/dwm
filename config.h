@@ -2,12 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 20;
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappx     = 5;
+static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar				= 1;        /* 0 means bottom bar */
-static const int vertpad			= 10;
-static const int sidepad			= 10;
+static const int vertpad			= 0;		/* padding for topbar */
+static const int sidepad			= 0;
 static const char *fonts[]          = { "Terminus:size=20", "Font Awesome:size:20" };
 static const char dmenufont[]       = "Terminus:size=20";
 static const char col_gray1[]       = "#222222";
@@ -15,6 +15,10 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#333333";
 static const char col_cyan[]        = "#91ffff";
+static const char col_red[]			= "#ff0000";
+static const char col_green[]		= "#00ff00";
+static const char col_mag[]			= "#d300c4";
+static const char col_orange[]		= "#f57800";
 static const unsigned int baralpha = OPAQUE;
 static const unsigned int borderalpha = OPAQUE;
 
@@ -23,10 +27,10 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeNorm] = { col_cyan, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { col_cyan, col_gray1,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_cyan, col_gray1,  col_gray2  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
+	[SchemeStatus]  = { col_orange, col_gray1,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, col_green,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_green, col_gray1,  col_gray2  }, // Tagbar left unselected {text,background,not used but cannot be empty}
     [SchemeInfoSel]  = { col_gray4, col_cyan,  col_gray2  }, // infobar middle  selected {text,background,not used but cannot be empty}
     [SchemeInfoNorm]  = { col_cyan, col_gray1,  col_gray2  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
@@ -69,7 +73,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
 	{ "",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "",      monocle },
 	{ "",	  spiral },
 	{ "[\\]",	  dwindle },
 };
@@ -87,10 +91,10 @@ static const Layout layouts[] = {
 
 /* commands */
 
-static const char dmenu_hp_list[] = "steam,discord,xgalaga++,qbittorrent,qutebrowser";
+static const char dmenu_hp_list[] = "steam,spotify,discord,xgalaga++,qbwttorrent,qutebrowser";
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f4dd00", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f57800", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
 //static const char *termcmd[]  = { "urxvt", "+sb", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[] = {"brave", NULL};
@@ -134,6 +138,8 @@ static Key keys[] = {
 	{ MODKEY,						XK_n,	   togglealttag,   {0} },
 	{ MODKEY,						XK_a,	   shiftview,	   {.i = -1} },
 	{ MODKEY,						XK_s,	   shiftview,	   {.i = +1} },
+	{ MODKEY|ShiftMask,				XK_a,	   shifttag,	   {.i = -1} },
+	{ MODKEY|ShiftMask,				XK_s,	   shifttag,	   {.i = +1} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
