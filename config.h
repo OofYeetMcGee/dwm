@@ -16,6 +16,7 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#333333";
 static const char col_cyan[]        = "#91ffff";
 static const char col_red[]			= "#ff0000";
+static const char col_dark_blue[]	= "#000b1e";
 static const char col_green[]		= "#00ff00";
 static const char col_mag[]			= "#d300c4";
 static const char col_orange[]		= "#f57800";
@@ -28,11 +29,12 @@ static const char *colors[][3]      = {
 //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeNorm] = { col_cyan, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
-	[SchemeStatus]  = { col_orange, col_gray1,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_green,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_green, col_gray1,  col_gray2  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_cyan,  col_gray2  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_cyan, col_gray1,  col_gray2  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeStatus]  = { col_cyan, col_dark_blue,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
+	// [SchemeTagsSel]  = { col_gray4, col_cyan,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_dark_blue, col_cyan,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_cyan, col_dark_blue,  col_gray2  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_dark_blue, col_cyan,  col_gray2  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_cyan, col_dark_blue,  col_gray2  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 static const unsigned int alphas[][3]	= {
@@ -94,7 +96,7 @@ static const Layout layouts[] = {
 static const char dmenu_hp_list[] = "steam,spotify,discord,xgalaga++,qbwttorrent,qutebrowser";
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f57800", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:", "-fn", dmenufont, "-nb", col_dark_blue, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f57800", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
 //static const char *termcmd[]  = { "urxvt", "+sb", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[] = {"brave", NULL};
