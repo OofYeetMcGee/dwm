@@ -49,7 +49,9 @@ static const unsigned int alphas[][3]	= {
 };
 
 /* tagging */
-static const char *tags[] = { "", "ﲤ", "ﰁ", "", "", "", "", "", "阮"};
+// Other fun icons: , , , ﴣ
+//static const char *tags[] = { "", "ﲤ", "ﰁ", "", "", "", "", "", "阮"};
+static const char *tags[] = { "ﲵ", "", "﬙", "", "", "", "", "", "ﴣ"};
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 static const int momentaryalttags = 0; // 1 means alttags only show while key is help
 
