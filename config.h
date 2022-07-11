@@ -95,7 +95,7 @@ static const Layout layouts[] = {
 
 /* commands */
 
-static const char dmenu_hp_list[] = "steam,spotify,discord,xgalaga++,qbwttorrent,qutebrowser";
+static const char dmenu_hp_list[] = "steam,spotify,discord,xgalaga++,qbwttorrent,qutebrowser,virt-manager";
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:", "-fn", dmenufont, "-nb", col_dark_blue, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f57800", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
