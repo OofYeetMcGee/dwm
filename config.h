@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -83,7 +83,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -111,12 +111,13 @@ static const char *scratchpadcmd[] = {"alacritty", "-t", "Scratch", "-o", "windo
 #include "shift-tools.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,						XK_o,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,				XK_b,	   spawn,	       {.v = brave} },
-	{ MODKEY,						XK_q,      spawn,	       { .v = up_bright} },
-	{ MODKEY,						XK_w,      spawn,	       { .v = down_bright} },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = librewolf },
+	{ 0,				            XF86XK_MonBrightnessUp,         spawn,	       { .v = up_bright} },
+	{ 0,						    XF86XK_MonBrightnessDown,       spawn,	       { .v = down_bright} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -124,7 +125,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,	                    XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -140,10 +141,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,						XK_n,	   togglealttag,   {0} },
-	{ MODKEY,						XK_a,	   shiftview,	   {.i = -1} },
-	{ MODKEY,						XK_s,	   shiftview,	   {.i = +1} },
-	{ MODKEY|ShiftMask,				XK_a,	   shifttag,	   {.i = -1} },
-	{ MODKEY|ShiftMask,				XK_s,	   shifttag,	   {.i = +1} },
+	{ MODKEY,						XK_q,	   shiftview,	   {.i = -1} },
+	{ MODKEY,						XK_w,	   shiftview,	   {.i = +1} },
+	{ MODKEY|ShiftMask,				XK_q,	   shifttag,	   {.i = -1} },
+	{ MODKEY|ShiftMask,				XK_w,	   shifttag,	   {.i = +1} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -153,7 +154,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
