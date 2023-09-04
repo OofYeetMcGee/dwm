@@ -102,6 +102,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:
 //static const char *termcmd[]  = { "urxvt", "+sb", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[] = {"brave", NULL};
+static const char *librewolf[] = {"librewolf", NULL};
 static const char *up_bright[] = {"light", "-A", "5", NULL};
 static const char *down_bright[] = {"light", "-U", "5", NULL};
 
