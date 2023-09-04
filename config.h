@@ -116,7 +116,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,						XK_o,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,				XK_b,	   spawn,	       {.v = brave} },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = librewolf },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = librewolf } },
 	{ 0,				            XF86XK_MonBrightnessUp,         spawn,	       { .v = up_bright} },
 	{ 0,						    XF86XK_MonBrightnessDown,       spawn,	       { .v = down_bright} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
