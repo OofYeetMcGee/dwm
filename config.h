@@ -103,6 +103,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *brave[] = {"brave", NULL};
 static const char *librewolf[] = {"librewolf", NULL};
+static const char *mutevol[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *up_bright[] = {"light", "-A", "5", NULL};
 static const char *down_bright[] = {"light", "-U", "5", NULL};
 
@@ -118,7 +121,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_b,	   spawn,	       {.v = brave} },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = librewolf } },
 	{ 0,				            XF86XK_MonBrightnessUp,         spawn,	       { .v = up_bright} },
-	{ 0,						    XF86XK_MonBrightnessDown,       spawn,	       { .v = down_bright} },
+	{ 0,						    XF86XK_MonBrightnessDown,       spawn,	       { .v = down_bright} },  
+	{ 0,                       		XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       		XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       		XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },	
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
