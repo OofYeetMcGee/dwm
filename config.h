@@ -116,7 +116,7 @@ static const char *scratchpadcmd[] = {"alacritty", "-t", "Scratch", "-o", "windo
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,						XK_o,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,				XK_b,	   spawn,	       {.v = brave} },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = librewolf } },
@@ -132,7 +132,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,             XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,	                    XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -161,7 +161,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ControlMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
 };
 
 /* button definitions */
