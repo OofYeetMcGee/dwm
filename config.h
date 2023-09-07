@@ -100,14 +100,19 @@ static const char dmenu_hp_list[] = "steam,spotify,discord,xgalaga++,qbwttorrent
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-p", "run:", "-fn", dmenufont, "-nb", col_dark_blue, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-hb", "#f57800", "-hf", "#333333", "-hp", dmenu_hp_list, NULL };
 //static const char *termcmd[]  = { "urxvt", "+sb", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *brave[] = {"brave", NULL};
 static const char *librewolf[] = {"librewolf", NULL};
+static const char *ranger[] = {"kitty", "-e", "ranger", NULL};
 static const char *mutevol[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *up_bright[] = {"light", "-A", "5", NULL};
 static const char *down_bright[] = {"light", "-U", "5", NULL};
+static const char *audio_back[] = {"playerctl", "previous", NULL};
+static const char *audio_play[] = {"playerctl", "play-pause", NULL};
+static const char *audio_stop[] = {"playerctl", "stop", NULL};
+static const char *audio_next[] = {"playerctl", "next", NULL};
 
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"alacritty", "-t", "Scratch", "-o", "window.dimensions.columns=68", "window.dimensions.lines=22", NULL};
@@ -120,11 +125,16 @@ static Key keys[] = {
 	{ MODKEY,						XK_o,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,				XK_b,	   spawn,	       {.v = brave} },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = librewolf } },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = ranger } },
 	{ 0,				            XF86XK_MonBrightnessUp,         spawn,	       { .v = up_bright} },
 	{ 0,						    XF86XK_MonBrightnessDown,       spawn,	       { .v = down_bright} },  
 	{ 0,                       		XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                       		XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                       		XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },	
+    { Mod1Mask,               XK_h,      spawn,          {.v = audio_back} },
+    { Mod1Mask,               XK_j,      spawn,          {.v = audio_play} },
+    { Mod1Mask,               XK_k,      spawn,          {.v = audio_stop} },
+    { Mod1Mask,               XK_l,      spawn,          {.v = audio_next} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -135,10 +145,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,	                    XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,						XK_u,      setlayout,	   {.v = &layouts[3]} },
+	{ MODKEY|ControlMask,           XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ControlMask,           XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ControlMask,           XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,			XK_u,      setlayout,	   {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
