@@ -26,7 +26,7 @@ static const unsigned int borderalpha = OPAQUE;
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+    //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeNorm] = { col_cyan, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
 	[SchemeStatus]  = { col_cyan, col_dark_blue,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
