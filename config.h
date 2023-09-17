@@ -9,14 +9,18 @@ static const int topbar				= 1;        /* 0 means bottom bar */
 static const int vertpad			= 0;		/* padding for topbar */
 static const int sidepad			= 0;
 static const char *fonts[]          = { "Terminus:size=20", "Font Awesome:size:20" };
+//static const char *fonts[]          = { "Orbitron:size=16", "Rajdhani:size:16" };
 static const char dmenufont[]       = "Terminus:size=20";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#333333";
-static const char col_cyan[]        = "#91ffff";
+static const char col_cyan[]        = "#5ef6ff";
 static const char col_red[]			= "#ff0000";
-static const char col_dark_blue[]	= "#000b1e";
+static const char col_menu_red[]	= "#491d23";
+static const char col_selected_red[]	= "#6c2224";
+static const char col_background_red[]	= "#260e12";
+static const char col_dark_blue[]	= "#0c0c19";
 static const char col_green[]		= "#00ff00";
 static const char col_mag[]			= "#d300c4";
 static const char col_orange[]		= "#f57800";
@@ -27,14 +31,14 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
     //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeNorm] = { col_cyan, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_red  },
-	[SchemeStatus]  = { col_cyan, col_dark_blue,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeNorm] = { col_cyan, col_gray1, col_menu_red },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_red  }, //window border
+	[SchemeStatus]  = { col_cyan, col_background_red,  col_gray2  }, // Statusbar right {text,background,not used but cannot be empty}
 	// [SchemeTagsSel]  = { col_gray4, col_cyan,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_dark_blue, col_cyan,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_cyan, col_dark_blue,  col_gray2  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_dark_blue, col_cyan,  col_gray2  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_cyan, col_dark_blue,  col_gray2  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_cyan, col_selected_red,  col_gray2  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_cyan, col_background_red,  col_gray2  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_cyan, col_selected_red,  col_gray2  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_cyan, col_background_red,  col_gray2  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 static const unsigned int alphas[][3]	= {
